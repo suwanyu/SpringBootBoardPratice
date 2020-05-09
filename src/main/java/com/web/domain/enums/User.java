@@ -1,5 +1,6 @@
 package com.web.domain.enums;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -12,27 +13,33 @@ import java.time.LocalDateTime;
 @Entity
 @Table
 public class User implements Serializable {
+
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idx;
+    private Long idx; // 인덱스
 
     @Column
-    private String name;
+    private String name; // 회원 이름
 
     @Column
-    private String password;
+    private String password; // 회원 패스워드
 
     @Column
-    private String email;
+    private String email; // 회원 이메일
 
     @Column
-    private LocalDateTime createdDate;
+    private LocalDateTime createdDate; // 생성 날짜
 
     @Column
-    private LocalDateTime updatedDate;
+    private LocalDateTime updatedDate; // 수정 날짜
 
-
-
-
+    @Builder
+    public User(String name, String password, String email, LocalDateTime createdDate, LocalDateTime updatedDate) {
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
+    }
 }
