@@ -29,16 +29,26 @@ public class User implements Serializable {
     private String email; // 회원 이메일
 
     @Column
+    private String principal;
+
+    @Column
+    @Enumerated(EnumType.STRING)
+    private SocialType socialType;
+
+
+    @Column
     private LocalDateTime createdDate; // 생성 날짜
 
     @Column
     private LocalDateTime updatedDate; // 수정 날짜
 
     @Builder
-    public User(String name, String password, String email, LocalDateTime createdDate, LocalDateTime updatedDate) {
+    public User(String name, String password, String email, String principal, SocialType socialType, LocalDateTime createdDate, LocalDateTime updatedDate) {
         this.name = name;
         this.password = password;
         this.email = email;
+        this.principal=principal;
+        this.socialType=socialType;
         this.createdDate = createdDate;
         this.updatedDate = updatedDate;
     }
