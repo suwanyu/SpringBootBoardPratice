@@ -72,9 +72,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // logout() : 로그아웃에 대한 설정. 코드에서는 로그아웃이 수행될 URL(logoutUrl), 로그아웃이 성공했을 때 포워딩도리 URL(logoutSuccessUrl),
                 // 로그아웃을 성공했을 때 삭제될 쿠키값(deleteCookies), 설정된 세션의 무효화(invalidateHttpSession)를 수행하게끔 설정되어 있음
                     .logoutUrl("/logout")
-                    .logoutSuccessUrl("/")
-                    .deleteCookies("JSESSIONID")
-                    .invalidateHttpSession(true)
+                .logoutSuccessUrl("/")
+                .deleteCookies("JSESSIONID")
+                .invalidateHttpSession(true)
                 .and()
                     .addFilterBefore(filter, CsrfFilter.class)
                 // addFilterBefore(filter,beforeFilter): 첫 번째 인자보다 먼저 시작될 필터를 등록함.
